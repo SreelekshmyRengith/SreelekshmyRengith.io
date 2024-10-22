@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreelekshmy Renjith - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-section">
+            <img src="profile.jpg" alt="Sreelekshmy's Photo" class="profile-image">
+            <h1>Sreelekshmy Rengith</h1>
+            <p>University of Maryland, College Park | Software Engineering </p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="#resume">Professional Experience</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="leadership.html">Leadership & Volunteer</a></li>
+                <li><a href="#connect">Get in touch</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+<body>
+
+
+    <main>
+        <h2>My Certifications</h2>
+        <div class="certifications-container">
+            <div class="certification-card">
+                <img src="aws-certified.png" alt="AWS Certified">
+                <h3><a href="https://cp.certmetrics.com/amazon/en/public/verify/credential"> Certified Cloud Practitioner</a></h3>
+                <p>Issued Jul 2024 · Expires Jul 2027</p>
+                <p>Credential ID: 3b880a11fb574053bebc5da3fab5f9ef</p>
+            </div>
+
+            <div class="certification-card">
+                <img src="postman-api.png" alt="Postman API ">
+                <h3><a href="https://badgr.com/public/assertions/v7fPuWcNQTablvJxUJfXLw?identity__email=srengith@umd.edu">Postman API Fundamentals Student Expert</a> </h3>
+                <p>Earned: Dec 2023</p>
+            </div>
+
+            <div class="certification-card">
+                <img src="back-end.png" alt="Intro to back-end">
+                <h3><a href="https://www.coursera.org/account/accomplishments/certificate/U7NXCT8BH8PR">Introduction to Back - End Development</a> </h3>
+                <p>Earned: Oct 2023</p>
+            </div>
+
+            <div class="certification-card">
+                <img src="algo-trade.png" alt="Algo Trading">
+                <h3><a href="https://www.linkedin.com/learning/certificates/07d80a78e8237f311cfa16ad5c61fbb235ae581ef57c84f94c005191af9ce4f7?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BrTQ3OjCtRSqYIEcCbuLVZg%3D%3D">Algorithmic Trading and Stocks Essential Training</a></h3>
+                <p>Earned: Aug 2023</p>
+            </div>
+
+            <div class="certification-card">
+                <img src="python-bootcamp.png" alt="Python Bootcamp">
+                <h3><a href="https://www.udemy.com/certificate/UC-60c28782-0fec-4cca-a010-dc454ceb1f38/">2022 Complete Python Bootcamp</a></h3>
+                <p>Earned: Jul 2022</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <section id="connect">
+        <p>Connect with me on <a href="https://www.linkedin.com/in/srengith/" target="_blank">LinkedIn</a> | <a href="mailto:srengith@terpmail.umd.edu">Email</a>  
+        </p>
+        </section>
+    </footer>
+    <button id="scrollTopBtn">↑</button>
+
+<script>
+ 
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+    };
+
+    scrollTopBtn.onclick = function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    });
+
+    document.querySelectorAll('.experience-item').forEach(item => {
+        observer.observe(item);
+    });
+</script>
+</body>
+</html>

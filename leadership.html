@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sreelekshmy Renjith - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-section">
+            <img src="profile.jpg" alt="Sreelekshmy's Photo" class="profile-image">
+            <h1>Sreelekshmy Rengith</h1>
+            <p>University of Maryland, College Park | Software Engineering </p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">About Me</a></li>
+                <li><a href="#resume">Professional Experience</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="leadership.html">Leadership & Volunteer</a></li>
+                <li><a href="#connect">Get in touch</a></li> 
+            </ul>
+        </nav>
+    </header>
+<body>
+    <main>
+        <h2>Leadership & Volunteer Experience</h2>
+        <div class="leadership-container">
+            <div class="leadership-card">
+                <h3>Executive Committee Member, IEDC LBSITW</h3>
+                <p><strong>Jul 2018 - Jul 2019 | Trivandrum, Kerala, India</strong></p>
+                <ul>
+                    <li>Played an integral role in fostering a culture of innovation and entrepreneurship among students.</li>
+                    <li>Collaborated with a dedicated team to organize workshops, seminars, and events that provided students with resources, networking opportunities, and mentorship.</li>
+                    <li>Coordinated events like hackathons, idea pitching sessions, and expert talks to help aspiring entrepreneurs gain confidence and skills.</li>
+                    <li>Developed leadership, project management, and communication skills, contributing to a vibrant entrepreneurial community on campus.</li>
+                </ul>
+                <img src="iedc.jpeg" alt="IEDC LBSITW Logo" class="iedc-logo">
+            </div>
+    
+            <div class="leadership-card">
+                <h3>Volunteer, IEDC Summit 2018</h3>
+                <p><strong>Dec 2018 | Trivandrum, Kerala, India</strong></p>
+                <ul>
+                    <li>Volunteered at the 2018 IEDC Summit, the largest student entrepreneurship summit in Kerala.</li>
+                    <li>Assisted in event management, including registration, coordination of sessions, and guiding attendees.</li>
+                    <li>Engaged with industry experts, entrepreneurs, and students, enhancing networking and organizational skills.</li>
+                    <li>Supported student entrepreneurship initiatives by deepening understanding of the startup ecosystem.</li>
+                    <li>
+                        <img src="cert_iedc.jpeg" alt="Participation Certificate" height="150px" width="300px" id="awardImg" style="cursor: pointer;">
+                    </li>
+                    
+                    <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"></div>
+                    </div>
+                </ul>
+                <img src="summit_18.png" alt="IEDC LBSITW Logo" class="iedc-logo">
+            </div>
+    
+            <div class="leadership-card">
+                <h3>Volunteer, Bitcamp 2024</h3>
+                <p><strong>Apr 2024 | College Park, MD, USA</strong></p>
+                <ul>
+                    <li>Participated as a volunteer at Bitcamp 2024, one of the largest hackathons on the East Coast.</li>
+                    <li>Collaborated with teams from diverse backgrounds, fostering an inclusive environment for creativity and innovation.</li>
+                    <li>Developed communication and mentoring skills while contributing to a dynamic and fast-paced event.</li>
+                </ul>
+                <img src="bitcamp.png" alt="IEDC LBSITW Logo" class="iedc-logo">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <section id="connect">
+        <p>Connect with me on <a href="https://www.linkedin.com/in/srengith/" target="_blank">LinkedIn</a> | <a href="mailto:srengith@terpmail.umd.edu">Email</a>  
+        </p>
+        </section>
+    </footer>
+    <button id="scrollTopBtn">↑</button>
+
+<script>
+ 
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+    };
+
+    scrollTopBtn.onclick = function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    });
+
+    document.querySelectorAll('.experience-item').forEach(item => {
+        observer.observe(item);
+    });
+
+    var modal = document.getElementById("myModal");
+
+    var img = document.getElementById("awardImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+
+    img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() { 
+        modal.style.display = "none";
+    }
+</script>
+</body>
+</html>
